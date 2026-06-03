@@ -1,0 +1,27 @@
+<form [formGroup]="caixaForm">
+  <div class="form-grid">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Usuário ID</mat-label>
+      <input matInput formControlName="usuario_id" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Saldo Inicial</mat-label>
+      <input matInput type="number" formControlName="saldo_inicial" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Saldo Final</mat-label>
+      <input matInput type="number" formControlName="saldo_final" />
+    </mat-form-field>
+  </div>
+
+  <div class="actions">
+    <button type="button" mat-raised-button color="primary" (click)="abrirCaixa()">Abrir Caixa</button>
+    <button type="button" mat-raised-button color="accent" (click)="fecharCaixa()">Fechar Caixa</button>
+  </div>
+
+  <div *ngIf="alertMessage" class="alert" [class.success]="alertType === 'success'" [class.error]="alertType === 'error'">
+    {{ alertMessage }}
+  </div>
+</form>
